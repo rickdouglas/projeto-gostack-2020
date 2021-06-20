@@ -1,13 +1,12 @@
 import express from 'express';
+import routes from './routes/index';
 
 const app = express();
-
-app.get('/', (request, response) => {
-    return response.json({message : 'testando??'});
-})
+app.use(express.json());
+app.use(routes);
 
 const port = 3333;
 
 app.listen(port, () => {
     console.log(`Application runnig at http://localhost:${port} `)
-})
+});
